@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanhangbao.mysql.ecable.dao.Eca_logMapper">
+  <resultMap id="BaseResultMap" type="com.lanhangbao.mysql.ecable.bean.Eca_log">
+    <id column="ecal_id" jdbcType="INTEGER" property="ecalId" />
+    <result column="eca_id" jdbcType="INTEGER" property="ecaId" />
+    <result column="eca_name" jdbcType="VARCHAR" property="ecaName" />
+    <result column="admin_type" jdbcType="INTEGER" property="adminType" />
+    <result column="client_type" jdbcType="INTEGER" property="clientType" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="ip" jdbcType="BIGINT" property="ip" />
+    <result column="ip_address" jdbcType="VARCHAR" property="ipAddress" />
+    <result column="add_time" jdbcType="BIGINT" property="addTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ecal_id, eca_id, eca_name, admin_type, client_type, type_id, description, ip, ip_address, 
+    add_time
+  </sql>
+  <select id="selectByExample" parameterType="com.lanhangbao.mysql.ecable.bean.Eca_logExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from eca_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from eca_log
+    where ecal_id = #{ecalId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from eca_log
+    where ecal_id = #{ecalId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lanhangbao.mysql.ecable.bean.Eca_logExample">
+    delete from eca_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lanhangbao.mysql.ecable.bean.Eca_log">
+    insert into eca_log (ecal_id, eca_id, eca_name, 
+      admin_type, client_type, type_id, 
+      description, ip, ip_address, 
+      add_time)
+    values (#{ecalId,jdbcType=INTEGER}, #{ecaId,jdbcType=INTEGER}, #{ecaName,jdbcType=VARCHAR}, 
+      #{adminType,jdbcType=INTEGER}, #{clientType,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR}, #{ip,jdbcType=BIGINT}, #{ipAddress,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanhangbao.mysql.ecable.bean.Eca_log">
+    insert into eca_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ecalId != null">
+        ecal_id,
+      </if>
+      <if test="ecaId != null">
+        eca_id,
+      </if>
+      <if test="ecaName != null">
+        eca_name,
+      </if>
+      <if test="adminType != null">
+        admin_type,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="ipAddress != null">
+        ip_address,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ecalId != null">
+        #{ecalId,jdbcType=INTEGER},
+      </if>
+      <if test="ecaId != null">
+        #{ecaId,jdbcType=INTEGER},
+      </if>
+      <if test="ecaName != null">
+        #{ecaName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminType != null">
+        #{adminType,jdbcType=INTEGER},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=BIGINT},
+      </if>
+      <if test="ipAddress != null">
+        #{ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lanhangbao.mysql.ecable.bean.Eca_logExample" resultType="java.lang.Long">
+    select count(*) from eca_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update eca_log
+    <set>
+      <if test="row.ecalId != null">
+        ecal_id = #{row.ecalId,jdbcType=INTEGER},
+      </if>
+      <if test="row.ecaId != null">
+        eca_id = #{row.ecaId,jdbcType=INTEGER},
+      </if>
+      <if test="row.ecaName != null">
+        eca_name = #{row.ecaName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.adminType != null">
+        admin_type = #{row.adminType,jdbcType=INTEGER},
+      </if>
+      <if test="row.clientType != null">
+        client_type = #{row.clientType,jdbcType=INTEGER},
+      </if>
+      <if test="row.typeId != null">
+        type_id = #{row.typeId,jdbcType=INTEGER},
+      </if>
+      <if test="row.description != null">
+        description = #{row.description,jdbcType=VARCHAR},
+      </if>
+      <if test="row.ip != null">
+        ip = #{row.ip,jdbcType=BIGINT},
+      </if>
+      <if test="row.ipAddress != null">
+        ip_address = #{row.ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="row.addTime != null">
+        add_time = #{row.addTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update eca_log
+    set ecal_id = #{row.ecalId,jdbcType=INTEGER},
+      eca_id = #{row.ecaId,jdbcType=INTEGER},
+      eca_name = #{row.ecaName,jdbcType=VARCHAR},
+      admin_type = #{row.adminType,jdbcType=INTEGER},
+      client_type = #{row.clientType,jdbcType=INTEGER},
+      type_id = #{row.typeId,jdbcType=INTEGER},
+      description = #{row.description,jdbcType=VARCHAR},
+      ip = #{row.ip,jdbcType=BIGINT},
+      ip_address = #{row.ipAddress,jdbcType=VARCHAR},
+      add_time = #{row.addTime,jdbcType=BIGINT}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanhangbao.mysql.ecable.bean.Eca_log">
+    update eca_log
+    <set>
+      <if test="ecaId != null">
+        eca_id = #{ecaId,jdbcType=INTEGER},
+      </if>
+      <if test="ecaName != null">
+        eca_name = #{ecaName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminType != null">
+        admin_type = #{adminType,jdbcType=INTEGER},
+      </if>
+      <if test="clientType != null">
+        client_type = #{clientType,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=BIGINT},
+      </if>
+      <if test="ipAddress != null">
+        ip_address = #{ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ecal_id = #{ecalId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanhangbao.mysql.ecable.bean.Eca_log">
+    update eca_log
+    set eca_id = #{ecaId,jdbcType=INTEGER},
+      eca_name = #{ecaName,jdbcType=VARCHAR},
+      admin_type = #{adminType,jdbcType=INTEGER},
+      client_type = #{clientType,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=BIGINT},
+      ip_address = #{ipAddress,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=BIGINT}
+    where ecal_id = #{ecalId,jdbcType=INTEGER}
+  </update>
+</mapper>

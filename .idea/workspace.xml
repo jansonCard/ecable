@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302251627">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/set/mine/EcAdminMine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/EcAdminLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/login/EcAdminLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcAdminService.java" afterDir="false" />
+    <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302251921">
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/bean/Eca_log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/bean/Eca_logExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/dao/Eca_logMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcaLogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/mapper/Eca_logMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcaLoginTimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcaLoginTimeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +119,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EcableBackstage(9001)">
+  <component name="RunManager" selected="Application.MBG">
     <configuration name="MBG" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lanhangbao.mysql.ecable.test.MBG" />
       <module name="mysql-ecable-provider8001" />
@@ -180,7 +177,7 @@
       <workItem from="1677286217628" duration="298000" />
       <workItem from="1677286523134" duration="30988000" />
       <workItem from="1677318458400" duration="64000" />
-      <workItem from="1677318533138" duration="3651000" />
+      <workItem from="1677318533138" duration="5811000" />
     </task>
     <task id="LOCAL-00001" summary="janson202302251253">
       <created>1677300848024</created>
@@ -196,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677313705202</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="janson202302251921">
+      <created>1677324137582</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677324137582</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +221,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="janson202302251253" />
     <MESSAGE value="janson202302251627" />
-    <option name="LAST_COMMIT_MESSAGE" value="janson202302251627" />
+    <MESSAGE value="janson202302251921" />
+    <option name="LAST_COMMIT_MESSAGE" value="janson202302251921" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

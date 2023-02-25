@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 去掉注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- 配置数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://152.136.124.219:3306/e_cable?useSSL=false"
+                        userId="janson"
+                        password="Snynitfqm$janson10254415">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 指定javaBean生成的位置 -->
+        <javaModelGenerator targetPackage="com.lanhangbao.mysql.ecable.bean"
+                            targetProject=".\mysql-ecable-provider8001\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--指定sql映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject=".\mysql-ecable-provider8001\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 指定dao接口生成的位置，mapper接口 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.lanhangbao.mysql.ecable.dao" targetProject=".\mysql-ecable-provider8001\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+
+        <!-- table指定每个表的生成策略 -->
+        <!-- 管理员模块 -->
+        <!--<table tableName="ec_admin" domainObjectName="Ec_admin"></table>--><!-- 管理员表 -->
+        <!--<table tableName="eca_login" domainObjectName="Eca_login"></table>--><!-- 管理员登录信息表 -->
+        <table tableName="eca_login_time" domainObjectName="Eca_login_time"></table><!-- 管理员登录时间表 -->
+
+
+
+
+
+
+        <!--<table tableName="ha_login_time" domainObjectName="Ha_login_time"></table>--><!-- 保持登录时间表 -->
+        <!--<table tableName="ha_lock_time" domainObjectName="Ha_lock_time"></table>--><!-- 锁屏时间表 -->
+        <!--<table tableName="ha_login_log" domainObjectName="Ha_login_log"></table>--><!-- 管理员登录日志表 -->
+        <!--<table tableName="ha_log" domainObjectName="Ha_log"></table>--><!-- 管理员普通操日志表 -->
+        <!--<table tableName="ha_token" domainObjectName="Ha_token"></table>--><!-- 管理员token表 -->
+
+        <!-- ip库 -->
+        <!--<table tableName="h_ip" domainObjectName="H_ip"></table>--><!-- 平台ip库表 -->
+
+        <!-- 用户模块 -->
+        <!--<table tableName="h_user" domainObjectName="H_user"></table>--><!-- 用户表 -->
+
+        <!-- 各种前端日志 -->
+        <!--<table tableName="hu_login_log" domainObjectName="Hu_login_log"></table>--><!-- 用户登录日志表 -->
+        <!--<table tableName="hu_log" domainObjectName="Hu_log"></table>--><!-- 普通操作日志表 -->
+
+        <!-- 访客模块 -->
+        <!--<table tableName="h_visitor" domainObjectName="H_visitor"></table>--><!-- 访客记录表 -->
+        <!--<table tableName="hv_number" domainObjectName="Hv_number"></table>--><!-- 访客量表 -->
+
+        <!-- 版本更新 -->
+        <!--<table tableName="h_edition" domainObjectName="H_edition"></table>--><!-- 版本更新表 -->
+        <!--<table tableName="hc_edition" domainObjectName="Hc_edition"></table>--><!-- 管理员版本更新表 -->
+
+        <!-- 后台通知消息 -->
+        <!--<table tableName="ha_notice" domainObjectName="Ha_notice"></table>--><!-- 后台通知消息表 -->
+        <!--<table tableName="han_read" domainObjectName="Han_read"></table>--><!-- 后台通知消息是否已读表 -->
+        <!--<table tableName="han_del" domainObjectName="Han_del"></table>--><!-- 后台通知消息是否删除表 -->
+
+        <!-- 敏感词汇 -->
+        <!--<table tableName="hs_word" domainObjectName="Hs_word"></table>--><!-- 敏感词汇表 -->
+
+        <!-- 银行 -->
+        <!--<table tableName="h_bank" domainObjectName="H_bank"></table>--><!-- 银行卡表 -->
+
+        <!-- 访客模块 -->
+        <!--<table tableName="h_visitor" domainObjectName="H_visitor"></table>--><!-- 访客记录表 -->
+        <!--<table tableName="hv_number" domainObjectName="Hv_number"></table>--><!-- 访客量表 -->
+
+        <!-- 省市县三级联动 -->
+        <!--<table tableName="h_province" domainObjectName="H_province"></table>--><!-- 省表 -->
+        <!--<table tableName="h_city" domainObjectName="H_city"></table>--><!-- 市表 -->
+        <!--<table tableName="h_county" domainObjectName="H_county"></table>--><!-- 县表 -->
+
+        <!-- 省市区域店铺分区 -->
+        <!--<table tableName="haa_province" domainObjectName="Haa_province"></table>--><!-- 省表 -->
+        <!--<table tableName="haa_city" domainObjectName="Haa_city"></table>--><!-- 市表 -->
+        <!--<table tableName="haa_area" domainObjectName="Haa_area"></table>--><!-- 区域表 -->
+
+        <!-- 区域代理 -->
+        <!--<table tableName="ha_admin" domainObjectName="Ha_admin"></table>--><!-- 区域代理表 -->
+
+        <!-- 商品模块 -->
+        <!--<table tableName="hg_type" domainObjectName="Hg_type"></table>--><!-- 商品类型表 -->
+        <!--<table tableName="h_goods" domainObjectName="H_goods"></table>--><!-- 商品表 -->
+        <!--<table tableName="hg_standard" domainObjectName="Hg_standard"></table>--><!-- 商品规格表 -->
+        <!--<table tableName="hg_company" domainObjectName="Hg_company"></table>--><!-- 商品进货公司表 -->
+        <!--<table tableName="hg_batch" domainObjectName="Hg_batch"></table>--><!-- 商品批次表 -->
+        <!--<table tableName="hg_settlement" domainObjectName="Hg_settlement"></table>--><!-- 商品结算表 -->
+
+        <!-- 快递 -->
+        <!--<table tableName="h_express" domainObjectName="H_express"></table>--><!-- 快递表 -->
+
+        <!-- 临时图片 -->
+        <!--<table tableName="ht_images" domainObjectName="Ht_images"></table>--><!-- 临时图片表 -->
+
+        <!-- 店铺商品模块 -->
+        <!--<table tableName="hsug_stock" domainObjectName="Hsug_stock"></table>--><!-- 门店商品库存表 -->
+        <!--<table tableName="hsugp_order" domainObjectName="Hsugp_order"></table>--><!-- 门店商品进货单表 -->
+        <!--<table tableName="hsugpo_goods" domainObjectName="Hsugpo_goods"></table>--><!-- 门店商品进货单商品详情表 -->
+
+        <!-- 门店 -->
+        <!--<table tableName="h_store" domainObjectName="H_store"></table>--><!-- 门店表 -->
+
+        <!-- 门店管理员 -->
+        <!--<table tableName="hs_user" domainObjectName="Hs_user"></table>--><!-- 门店管理员表 -->
+
+        <!-- 应用版本 -->
+        <!--<table tableName="h_version" domainObjectName="H_version"></table>--><!-- 应用版本表 -->
+        <!--<table tableName="htv_app" domainObjectName="Htv_app"></table>--><!-- 临时上传的app表 -->
+
+        <!-- 线上商城模块 -->
+        <!--<table tableName="ho_type" domainObjectName="Ho_type"></table>--><!-- 线上商品类型表 -->
+        <!--<table tableName="hon_goods" domainObjectName="Hon_goods"></table>--><!-- 线上商品表 -->
+        <!--<table tableName="hong_banner" domainObjectName="Hong_banner"></table>--><!-- 线上商品轮播图表 -->
+        <!--<table tableName="hong_images" domainObjectName="Hong_images"></table>--><!-- 线上商品详情图表 -->
+
+        <!-- 会员卡模块 -->
+        <!--<table tableName="hv_card" domainObjectName="Hv_card"></table>--><!-- 会员卡库表 -->
+
+        <!-- 企业网站模块 -->
+        <!--<table tableName="ha_template" domainObjectName="Ha_template"></table>--><!-- 企业网站模板表 -->
+
+        <!-- 代理模块 -->
+        <!--<table tableName="ha_company" domainObjectName="Ha_company"></table>--><!-- 代理公司表 -->
+        <!--<table tableName="hac_admin" domainObjectName="Hac_admin"></table>--><!-- 代理公司管理员表 -->
+
+
+
+
+
+
+
+
+    </context>
+</generatorConfiguration>

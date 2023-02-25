@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Spring的配置文件，这里主要配置和业务逻辑有关的 -->
+	<!--=================== 数据源，事务控制，xxx ================-->
+	<context:property-placeholder location="classpath:application.yml" />
+	<bean id="abstractDataSource" abstract="true" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+		
+        <!--alibaba连接池私有属性-->
+        <property name="maxActive" value="1000"></property><!--最大连接池数量-->
+        <!--获取连接超时时间-->
+        <property name="minEvictableIdleTimeMillis" value="10000"/>
+    </bean>
+	
+	
+	<!--主库配置-->
+    <bean id="master" parent="abstractDataSource">
+		<property name="url" value="${spring.datasource.url1}"></property>
+		<property name="driverClassName" value="${spring.datasource.driver-class-name}"></property>
+		<property name="username" value="${spring.datasource.username}"></property>
+		<property name="password" value="${spring.datasource.password}"></property>
+    </bean>
+    <!--从库配置 若多个从库，可以依此配置下去-->
+    <bean id="slave1" parent="abstractDataSource">
+        <property name="url" value="${spring.datasource.url2}"></property>
+        <property name="driverClassName" value="${spring.datasource.driver-class-name}"></property>
+        <property name="username" value="${spring.datasource.username}"></property>
+        <property name="password" value="${spring.datasource.password}"></property>
+    </bean>
+    
+    <!--配置动态数据源，这儿targetDateSource(目标数据源，spring中的配置)就是路由数据源所对应的名称-->
+    <bean id="dynamicDataSource" class="com.lanhangbao.mysql.ecable.mysql.DynamicDataSource">
+        <property name="targetDataSources">
+            <map>
+                <!--key与DynamicDataSourceHolder类中的两个数据源常量保持一致-->
+                <entry value-ref="master" key="master"></entry>
+                <!--若是多个从库，这里传进来的的slave就是随机的-->
+                <entry value-ref="slave1" key="slave1"></entry>
+            </map>
+        </property>
+    </bean>
+    <!--LazyConnection懒加载
+    将dynamicDataSource放入懒加载的数据源中-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+        <property name="targetDataSource">
+            <ref bean="dynamicDataSource"/>
+        </property>
+    </bean>
+    
+
+	<!--================== 配置和MyBatis的整合=============== -->
+	<!--sqlsesionFactory配置-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="com.entity"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+    </bean>
+	
+	<!--配置扫描dao接口包 动态实现dao接口，注入到spring容器中-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    	<!--注入sqlsessionfactory-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--给出需要扫描dao接口包-->
+        <property name="basePackage" value="com.lanhangbao.ecable.dao"></property>
+
+    </bean>
+	
+	<!-- 配置一个可以执行批量的sqlSession -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg name="executorType" value="BATCH"></constructor-arg>
+	</bean>
+	<!--=============================================  -->
+
+	<!-- ===============事务控制的配置 ================-->
+    <!--扫描service包下所有使⽤注解的类型-->
+	<context:component-scan base-package="com.lanhangbao.ecable.service"/>
+	<!--配置事务管理器-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!--注⼊数据库连接池-->
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<!--开启基于注解的事务，使用xml配置形式的事务（必要主要的都是使用配置式）  -->
+	<aop:config>
+		<!-- 切入点表达式 -->
+		<aop:pointcut expression="execution(* com.lanhangbao.ecable.service..*(..))" id="txPoint"/>
+		<!-- 配置事务增强 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
+	</aop:config>
+
+	<!--配置事务增强，事务如何切入  -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 所有方法都是事务方法 -->
+			<tx:method name="*"/>
+			<!--以get开始的所有方法  -->
+			<tx:method name="get*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+
+    <!-- 注册异常处理 -->
+    <bean id="exceptionHandler" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView" value="error"></property>
+        <property name="exceptionAttribute" value="exp"></property>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="cn.dtw.exception.MyException">myError</prop>
+            </props>
+        </property>
+    </bean>
+    
+	
+	
+	
+</beans>

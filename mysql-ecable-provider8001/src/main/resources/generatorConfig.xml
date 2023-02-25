@@ -42,7 +42,8 @@
         <!-- 管理员模块 -->
         <!--<table tableName="ec_admin" domainObjectName="Ec_admin"></table>--><!-- 管理员表 -->
         <!--<table tableName="eca_login" domainObjectName="Eca_login"></table>--><!-- 管理员登录信息表 -->
-        <table tableName="eca_login_time" domainObjectName="Eca_login_time"></table><!-- 管理员登录时间表 -->
+        <!--<table tableName="eca_login_time" domainObjectName="Eca_login_time"></table>--><!-- 管理员登录时间表 -->
+        <table tableName="eca_login_log" domainObjectName="Eca_login_log"></table><!-- 管理员登录日志表 -->
 
 
 

@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class CommonFunction {
-    /*获取ip*/
+    //获取ip
     public static String getIp(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
         if (ip != null && ip.length() != 0 && !"unknown".equalsIgnoreCase(ip)){
@@ -48,8 +48,9 @@ public class CommonFunction {
         }
         return ip;
     }
-    /*将127.0.0.1形式的IP地址转换成十进制整数，这里没有进行任何错误处理  */
-    public static long ipToLong(String strIp) {
+    //将127.0.0.1形式的IP地址转换成十进制整数，这里没有进行任何错误处理
+    public static long ipToLong(HttpServletRequest request) {
+        String strIp = getIp(request);
         long[] ip = new long[4];
         // 先找到IP地址字符串中.的位置
         int position1 = strIp.indexOf(".");
@@ -61,6 +62,12 @@ public class CommonFunction {
         ip[2] = Long.parseLong(strIp.substring(position2 + 1, position3));
         ip[3] = Long.parseLong(strIp.substring(position3 + 1));
         return (ip[0] << 24) + (ip[1] << 16) + (ip[2] << 8) + ip[3];
+    }
+    //getIpAddress 获取ip的物理地址
+    public static String getIpAddress(HttpServletRequest request)
+    {
+        String ipAddress = "";
+        return ipAddress;
     }
     /* 将十进制整数形式转换成127.0.0.1形式的IP地址  */
     public static String longToIp(long longIp) {
@@ -231,15 +238,15 @@ public class CommonFunction {
         String c_name = "北京谨菘科技有限公司";
         return c_name;
     }
-    /*getCookieTime*/
-    public static int getCookieTime(int type_id) {
-        int cookie_time = 0;
+    //getSaveTime 获取保存时间
+    public static int getSaveTime(int type_id) {
+        int saveTime = 0;
         if (type_id == 1) {
-            cookie_time = 2592000;
+            saveTime = 2592000;
         }else if(type_id == 2) {
-            cookie_time = 86400;
+            saveTime = 86400;
         }
-        return cookie_time;
+        return saveTime;
     }
     /*时间戳转时间*/
     public static String stampToTime(Long time) {

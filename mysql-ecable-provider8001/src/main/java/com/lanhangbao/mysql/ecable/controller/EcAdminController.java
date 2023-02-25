@@ -24,6 +24,7 @@ public class EcAdminController
     @ResponseBody
     public Ec_admin getAdminPassPhone(@Param("ecAdminJson") String ecAdminJson)
     {
+        System.out.println(ecAdminJson);
         return ecAdminService.getEcAdminPassPhone(CommonFunction.getGson().fromJson(ecAdminJson,Ec_admin.class).getEcaPhone());
     }
     //getAdminPassPhoneAndPassword 通过手机号和密码获取管理员信息

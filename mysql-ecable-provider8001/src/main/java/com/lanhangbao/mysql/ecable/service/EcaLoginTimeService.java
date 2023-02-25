@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class EcaLoginTimeService {
     @Resource
-    Eca_login_timeMapper eca_login_timeMapper;
+    Eca_login_timeMapper ecaLoginTimeMapper;
     Eca_login_timeExample example = new Eca_login_timeExample();
     Eca_login_timeExample.Criteria criteria = example.createCriteria();
     //getLoginTimePassEcaId 通过ecaId获取Eca_login_time
@@ -21,7 +21,7 @@ public class EcaLoginTimeService {
     {
         Eca_login_time ecaLoginTime = null;
         criteria.andEcaIdEqualTo(ecaId);
-        List<Eca_login_time> list = eca_login_timeMapper.selectByExample(example);
+        List<Eca_login_time> list = ecaLoginTimeMapper.selectByExample(example);
         if(!list.isEmpty()){
             ecaLoginTime = list.get(0);
         }

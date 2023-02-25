@@ -10,13 +10,13 @@ import java.util.List;
 @Service
 public class EcAdminService {
     @Resource
-    Ec_adminMapper ec_adminMapper;
+    Ec_adminMapper ecAdminMapper;
     private Ec_admin ecAdmin;
     private Ec_adminExample example;
     private Ec_adminExample.Criteria criteria;
     //insert 插入管理员
     public int insert(Ec_admin record){
-        return ec_adminMapper.insert(record);
+        return ecAdminMapper.insert(record);
     }
     //getEcAdminPassPhone 通过手机号码获取管理员信息
     public Ec_admin getEcAdminPassPhone(String ecaPhone){
@@ -24,7 +24,7 @@ public class EcAdminService {
         example = new Ec_adminExample();
         criteria = example.createCriteria();
         criteria.andEcaPhoneEqualTo(ecaPhone);
-        List<Ec_admin> list = ec_adminMapper.selectByExample(example);
+        List<Ec_admin> list = ecAdminMapper.selectByExample(example);
         if(!list.isEmpty()){
             ecAdmin = list.get(0);
         }
@@ -37,7 +37,7 @@ public class EcAdminService {
         criteria = example.createCriteria();
         criteria.andEcaPhoneEqualTo(ecaPhone);
         criteria.andEcaPwdEqualTo(ecaPwd);
-        List<Ec_admin> list = ec_adminMapper.selectByExample(example);
+        List<Ec_admin> list = ecAdminMapper.selectByExample(example);
         if(!list.isEmpty()){
             ecAdmin = list.get(0);
         }
@@ -45,7 +45,7 @@ public class EcAdminService {
     }
     //updatePassId 通过id修改管理员表
     public int updatePassId(Ec_admin record){
-        return ec_adminMapper.updateByPrimaryKeySelective(record);
+        return ecAdminMapper.updateByPrimaryKeySelective(record);
     }
 
 }

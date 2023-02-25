@@ -42,4 +42,11 @@ public class EcAdminController
     {
        return ecAdminService.updatePassId(CommonFunction.getGson().fromJson(ecAdminJson,Ec_admin.class));
     }
+    //getAdminPassId 通过ecaId获取Eca_admin
+    @PostMapping({"/admin/get_mine_pass_id"})
+    @ResponseBody
+    public Ec_admin getAdminPassId(@Param("ecAdminJson") String ecAdminJson)
+    {
+        return ecAdminService.getAdminPassId(CommonFunction.getGson().fromJson(ecAdminJson,Ec_admin.class));
+    }
 }

@@ -47,5 +47,12 @@ public class EcAdminService {
     public int updatePassId(Ec_admin record){
         return ecAdminMapper.updateByPrimaryKeySelective(record);
     }
+    //getAdminPassId 通过ecaId获取Eca_admin
+    public Ec_admin getAdminPassId(Ec_admin record)
+    {
+        ecAdmin = null;
+        ecAdmin = ecAdminMapper.selectByPrimaryKey(record.getEcaId());
+        return ecAdmin;
+    }
 
 }

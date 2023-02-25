@@ -1,4 +1,4 @@
-package com.lanhangbao.ecable.backstage.controller;
+package com.lanhangbao.ecable.backstage.controller.login;
 
 import com.lanhangbao.ecable.entities.CommonFunction;
 import com.lanhangbao.ecable.entities.bean.Ec_admin;
@@ -21,7 +21,6 @@ import java.util.Random;
 
 @RestController
 public class EcAdminLoginController {
-
     @Resource
     private RestTemplate restTemplate;
 

@@ -19,8 +19,8 @@ public class ApplicationContextConfig
     {
         return new RestTemplate();
     }
-    @Bean
+    /*@Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
-    }
+    }*/
 }

@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302251921">
-      <change afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/common/IpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/bean/Ec_ip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/bean/Ec_ipExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcIpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/dao/Ec_ipMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcIpService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/mapper/Ec_ipMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-mysql-ecable-commons/src/main/java/com/lanhangbao/ecable/entities/api/apiBean/IpObj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-mysql-ecable-commons/src/main/java/com/lanhangbao/ecable/entities/api/apiBean/Ip.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-mysql-ecable-commons/src/main/java/com/lanhangbao/ecable/entities/api/apiBean/Ip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/config/ApplicationContextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/config/ApplicationContextConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/common/IpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/common/IpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcIpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcIpController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +178,7 @@
       <workItem from="1677318458400" duration="64000" />
       <workItem from="1677318533138" duration="5811000" />
       <workItem from="1677473923811" duration="27000" />
-      <workItem from="1677473957350" duration="2062000" />
+      <workItem from="1677473957350" duration="7475000" />
     </task>
     <task id="LOCAL-00001" summary="janson202302251253">
       <created>1677300848024</created>
@@ -206,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677324137582</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="janson202302251921">
+      <created>1677478145709</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677478145709</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +267,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/lanhangbao$EcableBackstage_9001_.ic" NAME="EcableBackstage(9001) Coverage Results" MODIFIED="1677303251524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/lanhangbao$EcableBackstage_9001_.ic" NAME="EcableBackstage(9001) Coverage Results" MODIFIED="1677478436943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -16,12 +16,22 @@ public class EcIpController {
         this.ecIpService = ecIpService;
     }
     private Ec_ip ecIp;
-    //getAdminPassPHone通过手机号获取管理员信息
+    //getEcIpPassIp 通过IP获取Ec_ip
     @PostMapping({"/ip/get_ip"})
     @ResponseBody
-    public Ec_ip getAdminPassPhone(@Param("ecIpJson") String ecIpJson)
+    public Ec_ip getEcIpPassIp(@Param("ecIpJson") String ecIpJson)
     {
+        //System.out.println(ecIpJson);
         ecIp = CommonFunction.getGson().fromJson(ecIpJson,Ec_ip.class);
         return ecIpService.getEcIpPassIp(ecIp);
+    }
+    //insert 插入ip库
+    @PostMapping({"/ip/insert"})
+    @ResponseBody
+    public int insert(@Param("ecIpJson") String ecIpJson)
+    {
+        //System.out.println(ecIpJson);
+        ecIp = CommonFunction.getGson().fromJson(ecIpJson,Ec_ip.class);
+        return ecIpService.insert(ecIp);
     }
 }

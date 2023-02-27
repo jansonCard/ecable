@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302251921">
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/bean/Eca_log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/bean/Eca_logExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/dao/Eca_logMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcaLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/mapper/Eca_logMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/common/IpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/bean/Ec_ip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/bean/Ec_ipExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcIpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/dao/Ec_ipMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcIpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/mapper/Ec_ipMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcaLoginTimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcaLoginTimeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/config/ApplicationContextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/config/ApplicationContextConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +37,7 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -72,31 +76,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/java/idea_project/lanhangbao",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5103448",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "b261372e4a39fb579a5cd757a666e779",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java/idea_project/lanhangbao/ecable-backstage9001&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5103448&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0790e3d86bae80bf64ca910807e32ed8&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -119,7 +123,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MBG">
+  <component name="RunManager" selected="Spring Boot.MysqlEcableProviderMain8001">
     <configuration name="MBG" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lanhangbao.mysql.ecable.test.MBG" />
       <module name="mysql-ecable-provider8001" />
@@ -178,6 +182,8 @@
       <workItem from="1677286523134" duration="30988000" />
       <workItem from="1677318458400" duration="64000" />
       <workItem from="1677318533138" duration="5811000" />
+      <workItem from="1677473923811" duration="27000" />
+      <workItem from="1677473957350" duration="2062000" />
     </task>
     <task id="LOCAL-00001" summary="janson202302251253">
       <created>1677300848024</created>
@@ -209,11 +215,41 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="861c9dae-2898-4935-bac6-55744ed1d48d">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="861c9dae-2898-4935-bac6-55744ed1d48d" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>

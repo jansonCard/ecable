@@ -44,7 +44,10 @@
         <!--<table tableName="eca_login" domainObjectName="Eca_login"></table>--><!-- 管理员登录信息表 -->
         <!--<table tableName="eca_login_time" domainObjectName="Eca_login_time"></table>--><!-- 管理员登录时间表 -->
         <!--<table tableName="eca_login_log" domainObjectName="Eca_login_log"></table>--><!-- 管理员登录日志表 -->
-        <table tableName="eca_log" domainObjectName="Eca_log"></table><!-- 管理员普通操作表 -->
+        <!--<table tableName="eca_log" domainObjectName="Eca_log"></table>--><!-- 管理员普通操作表 -->
+
+        <!--ip库-->
+        <table tableName="ec_ip" domainObjectName="Ec_ip"></table><!-- IP库表 -->
 
     </context>
 </generatorConfiguration>

@@ -41,9 +41,10 @@ public class EcAdminLoginController {
     {
         Map<String, Object> map = new HashMap<>();
         int status = 0;
-        String content = "";
+        String content = "数据错误";
         String ecaPhone = request.getParameter("ecaPhone");
         String ecaPwd = CommonFunction.md5(CommonFunction.md5(request.getParameter("ecaPwd")));
+        System.out.println(ecaPhone);
         int loginType = Integer.parseInt(request.getParameter("loginType"));
         form = new LinkedMultiValueMap<>();
         ecAdmin = new Ec_admin();
@@ -75,8 +76,8 @@ public class EcAdminLoginController {
                 }else{//有登录信息
                     ecaLogin = CommonFunction.getGson().fromJson(loginObj,Eca_login.class);
                     String cookieToken = CommonFunction.getCookie(request,ecaLogin.getTokenName());
-                    String tokenName = CommonFunction.md5(CommonFunction.md5(String.valueOf(System.currentTimeMillis())));
-                    String tokenString = CommonFunction.md5(CommonFunction.md5(String.valueOf(System.currentTimeMillis())));
+                    String tokenName = CommonFunction.md5(CommonFunction.md5(String.valueOf(CommonFunction.getRandom(10000,99999))));
+                    String tokenString = CommonFunction.md5(CommonFunction.md5(String.valueOf(CommonFunction.getRandom(10000,99999))));
                     if(ecAdmin.getAdminType() == 0 || ecAdmin.getAdminType() == 1){//系统管理员和超级管理员
                         if(cookieToken == null || cookieToken.equals("0")){//没有cookie存cookie存loginLog存session存登录信息
                             //更新管理员登录信息表
@@ -168,7 +169,7 @@ public class EcAdminLoginController {
                                     status = 7;
                                 }
                             }
-                        }else{
+                        }else{//您没有用绑定的电脑登录
                             status = 6;
                             content = "您没有用绑定的电脑登录哟！";
                         }
@@ -180,47 +181,22 @@ public class EcAdminLoginController {
         map.put("content",content);
         return CommonFunction.getGson().toJson(map);
     }
-    //二次验证时发送短信验证码
-    @PostMapping(value = "/admin/login/send_code")
-    @ResponseBody
-    public String loginSendCode(HttpServletRequest request)
-    {
-        Map<String, Object> map = new HashMap<>();
-        int status = 0;
-        String content = "";
-        String code = String.valueOf((new Random()).nextInt(9999));
-        String ecaPhone = request.getParameter("ecaPhone");
-        System.out.println("code + " + code);
-        System.out.println("ecaPhone + " + ecaPhone);
-        CommonFunction.setSession(request, "code", code, 1200);
-        String ip = CommonFunction.getIp(request);
-        if(!ip.equals("127.0.0.1")) {
-            CommonFunction.send_admin_login(ecaPhone, code);
-            status = 1;
-            content = "发送验证码成功，测试环境";
-        }else{
-            status = 2;
-            content = "发送验证码成功，正式环境";
-        }
-        map.put("status", status);
-        map.put("content",content);
-        return CommonFunction.getGson().toJson(map);
-    }
     //二次验证码登录时验证
     @PostMapping(value = "/admin/login/code_submit")
     @ResponseBody
     public String codeSubmit(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>();
         int status = 0;
-        String content = "";
+        String content = "数据错误";
         String ecaPhone = request.getParameter("ecaPhone");
         String code = request.getParameter("code");
         int loginType = Integer.parseInt(request.getParameter("loginType"));
+        String codePhone = CommonFunction.getSession(request,"codePhone");
         String sessionCode = CommonFunction.getSession(request,"code");
         if (CommonFunction.getSession(request, "code") == null) {//验证码已失效
             status = 1;
             content = "验证码已失效";
-        } else if (!code.equals(sessionCode)) {//验证码错误
+        } else if (!ecaPhone.equals(codePhone) || !code.equals(sessionCode)) {//验证码错误
             status = 2;
             content = "验证码验证错误";
         } else {//登录成功 1 插入token 2 插入登录日志

@@ -31,9 +31,9 @@ public class EcaLoginController {
     @ResponseBody
     public int insertEcaLogin(@Param("ecaLoginJson") String ecaLoginJson)
     {
-        System.out.println("ecaLoginJson + " + ecaLoginJson);
+        //System.out.println("ecaLoginJson + " + ecaLoginJson);
         Eca_login ecaLogin = CommonFunction.getGson().fromJson(ecaLoginJson,Eca_login.class);
-        System.out.println("ecaLogin + " + CommonFunction.getGson().toJson(ecaLogin));
+        //System.out.println("ecaLogin + " + CommonFunction.getGson().toJson(ecaLogin));
         return ecaLoginService.insert(ecaLogin);
     }
 }

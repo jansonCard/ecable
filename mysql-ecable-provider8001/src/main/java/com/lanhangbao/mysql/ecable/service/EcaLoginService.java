@@ -38,9 +38,9 @@ public class EcaLoginService {
         criteria.andClientTypeEqualTo(record.getClientType());
         List<Eca_login> list = ecaLoginMapper.selectByExample(example);
         if(!list.isEmpty()){
-            return ecaLoginMapper.insertSelective(record);
-        }else{
             return ecaLoginMapper.updateByExampleSelective(record,example);
+        }else{
+            return ecaLoginMapper.insertSelective(record);
         }
     }
 }

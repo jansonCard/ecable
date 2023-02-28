@@ -51,7 +51,7 @@ public class EcAdminLoginController {
         ecAdmin.setEcaPwd(ecaPwd);
         form.set("ecAdminJson", CommonFunction.getGson().toJson(ecAdmin));
         String adminObj = restTemplate.postForObject(serverURL + "/admin/get_admin_pass_phone",form,String.class);
-        //1.先判断手机号是否已注册
+        //1.先判断手机号是否已注册-
         if(adminObj == null){//手机号不存在
             status = 1;
             content = "该管理员不存在，请核实";

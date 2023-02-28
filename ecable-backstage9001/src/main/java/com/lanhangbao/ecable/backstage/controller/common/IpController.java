@@ -3,6 +3,7 @@ package com.lanhangbao.ecable.backstage.controller.common;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONObject;
 import com.lanhangbao.ecable.entities.CommonFunction;
+import com.lanhangbao.ecable.entities.api.apiBean.Ip;
 import com.lanhangbao.ecable.entities.api.apiBean.IpObj;
 import com.lanhangbao.ecable.entities.api.utils.IpFunction;
 import com.lanhangbao.ecable.entities.bean.Ec_admin;
@@ -30,10 +31,10 @@ public class IpController {
     private String serverURL;
     Ec_admin ecAdmin;
 
-    //getAdminPassMineId 通过自身手机号获取Eca_admin
+    //getIp 通过自身手机号获取Eca_admin
     @PostMapping(value = "/admin/get_ip")
     @ResponseBody
-    public String getAdminPassMineId(HttpServletRequest request)
+    public String getIp(HttpServletRequest request)
     {
         Map<String, Object> map = new HashMap<>();
         int status = 1;
@@ -45,6 +46,8 @@ public class IpController {
         form.set("ecIpJson",CommonFunction.getGson().toJson(ecIp));
         String ipObj = restTemplate.postForObject(serverURL + "/ip/get_ip",form,String.class);
         //System.out.println("ipObj + " + ipObj);
+        Ip ipBean = CommonFunction.getGson().fromJson(CommonFunction.getGson().fromJson(ipObj,Ec_ip.class).getIpJson(), Ip.class);
+        String ipAddress = IpFunction.getSimpleIpAddress(ipBean);
         if(ipObj == null){//如果现在ip库中没有对应的ip，就去找api获取，获取完将对应的值存入ip库
             String key = "44f1062d1b4a4cdc82daac42d0aaa2ce";
             String ipStr = CommonFunction.getIp(request);
@@ -60,7 +63,7 @@ public class IpController {
             System.out.println(result);
             System.out.println(CommonFunction.getGson().fromJson(result, IpObj.class));
             IpObj ipObj2 = CommonFunction.getGson().fromJson(result, IpObj.class);
-            String ipAddress = IpFunction.getSimpleIpAddress(ipObj2.getResult());
+            ipAddress = IpFunction.getSimpleIpAddress(ipObj2.getResult());
             //插入ip库
             long cartId = 0;
             String cartName = "";
@@ -92,8 +95,8 @@ public class IpController {
                 status = 2;
                 content = "插入IP库成功";
             }
-
         }
+        map.put("ipAddress",ipAddress);
         map.put("status",status);
         map.put("content",content);
         return CommonFunction.getGson().toJson(map);

@@ -15,7 +15,7 @@ public class EcaLogService {
     public int insert(HttpServletRequest request,Eca_log record)
     {
         long ip = CommonFunction.ipToLong(request);
-        String ipAddress = CommonFunction.getIpAddress(request);
+        String ipAddress = "";
         record.setIp(ip);
         record.setIpAddress(ipAddress);
         record.setAddTime(System.currentTimeMillis());

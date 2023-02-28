@@ -63,12 +63,6 @@ public class CommonFunction {
         ip[3] = Long.parseLong(strIp.substring(position3 + 1));
         return (ip[0] << 24) + (ip[1] << 16) + (ip[2] << 8) + ip[3];
     }
-    //getIpAddress 获取ip的物理地址
-    public static String getIpAddress(HttpServletRequest request)
-    {
-        String ipAddress = "";
-        return ipAddress;
-    }
     /* 将十进制整数形式转换成127.0.0.1形式的IP地址  */
     public static String longToIp(long longIp) {
         // 直接右移24位

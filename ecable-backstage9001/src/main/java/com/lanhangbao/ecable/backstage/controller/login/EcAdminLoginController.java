@@ -1,5 +1,6 @@
 package com.lanhangbao.ecable.backstage.controller.login;
 
+import com.lanhangbao.ecable.backstage.controller.common.IpController;
 import com.lanhangbao.ecable.entities.CommonFunction;
 import com.lanhangbao.ecable.entities.bean.Ec_admin;
 import com.lanhangbao.ecable.entities.bean.Eca_login;
@@ -32,6 +33,9 @@ public class EcAdminLoginController {
     @Value("${service-url.nacos-user-service}")
     private String serverURL;
 
+    @Value("${service-url.nacos-mine-service}")
+    private String serverMine;
+
 
     //loginCheck 通过手机号密码登录客户端
     @PostMapping(value = "/admin/login/password")
@@ -43,7 +47,7 @@ public class EcAdminLoginController {
         String content = "数据错误";
         String ecaPhone = request.getParameter("ecaPhone");
         String ecaPwd = CommonFunction.md5(CommonFunction.md5(request.getParameter("ecaPwd")));
-        System.out.println(ecaPhone);
+        //System.out.println(ecaPhone);
         int loginType = Integer.parseInt(request.getParameter("loginType"));
         form = new LinkedMultiValueMap<>();
         ecAdmin = new Ec_admin();
@@ -51,17 +55,20 @@ public class EcAdminLoginController {
         ecAdmin.setEcaPwd(ecaPwd);
         form.set("ecAdminJson", CommonFunction.getGson().toJson(ecAdmin));
         String adminObj = restTemplate.postForObject(serverURL + "/admin/get_admin_pass_phone",form,String.class);
+        //System.out.println("adminObj + " + adminObj);
         //1.先判断手机号是否已注册-
         if(adminObj == null){//手机号不存在
             status = 1;
             content = "该管理员不存在，请核实";
         }else{
             adminObj = restTemplate.postForObject(serverURL + "/admin/get_admin_pass_phone_and_password",form,String.class);
+            System.out.println("h1");
             //2.判断输入的密码是否正确
             if(adminObj == null){//密码错误
                 status = 2;
                 content = "小莜莜提醒您，您的密码不对哟！";
             }else{
+                System.out.println("h2");
                 ecAdmin = CommonFunction.getGson().fromJson(adminObj,Ec_admin.class);
                 //密码正确以后判断是否是第一次登录 验证他的登录信息表中是否有信息
                 ecaLogin = new Eca_login();
@@ -69,6 +76,7 @@ public class EcAdminLoginController {
                 ecaLogin.setClientType(1);//PC端网页
                 form.set("ecaLoginJson",CommonFunction.getGson().toJson(ecaLogin));
                 String loginObj = restTemplate.postForObject(serverURL + "/admin/get_login_pass_ecaid",form,String.class);
+                System.out.println("loginObj + " + loginObj);
                 if(loginObj == null){//没有登录信息
                    status = 3; //开启短信验证
                     content = "小莜莜提醒您，您需要短信验证才能登录哟";
@@ -77,16 +85,19 @@ public class EcAdminLoginController {
                     String cookieToken = CommonFunction.getCookie(request,ecaLogin.getTokenName());
                     String tokenName = CommonFunction.md5(CommonFunction.md5(String.valueOf(CommonFunction.getRandom(10000,99999))));
                     String tokenString = CommonFunction.md5(CommonFunction.md5(String.valueOf(CommonFunction.getRandom(10000,99999))));
+                    System.out.println("h4");
                     if(ecAdmin.getAdminType() == 0 || ecAdmin.getAdminType() == 1){//系统管理员和超级管理员
                         if(cookieToken == null || cookieToken.equals("0")){//没有cookie存cookie存loginLog存session存登录信息
                             //更新管理员登录信息表
                             int ecaLoginInsertStatus = insertEcaLogin(ecAdmin,loginType,tokenName,tokenString);
+                            System.out.println("ecaLoginInsertStatus + " + ecaLoginInsertStatus);
                             if(ecaLoginInsertStatus != 1){//如果插入不成功
                                 status = 4;//登录信息存储失败
                                 content = "管理员登录信息存储失败";
                             }else{//如果插入成功设置sessionTime
                                 //存登录日志
                                 int ecaLoginLogInsertStatus = insertEcaLoginLog(request,ecAdmin,tokenName,tokenString);
+                                System.out.println(ecaLoginInsertStatus);
                                 if(ecaLoginLogInsertStatus != 1){//如果插入不成功
                                     status = 5;//管理员登录日志存储失败
                                     content = "管理员登录日志存储失败";
@@ -262,6 +273,10 @@ public class EcAdminLoginController {
     public int insertEcaLoginLog(HttpServletRequest request,Ec_admin ecAdmin,String tokenName,String tokenString)
     {
         int status = 0;
+        String ipString = restTemplate.postForObject(serverMine + "/admin/get_ip",form,String.class);
+        Map<String,Object> mapIp = CommonFunction.getGson().fromJson(ipString,Map.class);
+        String ipAddress = mapIp.get("ipAddress").toString();
+        System.out.println("ipString + " + ipString);
         ecaLoginLog = new Eca_login_log();
         ecaLoginLog.setEcaId(ecAdmin.getEcaId());
         ecaLoginLog.setEcaName(ecAdmin.getEcaName());
@@ -271,7 +286,7 @@ public class EcAdminLoginController {
         ecaLoginLog.setTokenName(tokenName);
         ecaLoginLog.setTokenString(tokenString);
         ecaLoginLog.setIp(CommonFunction.ipToLong(request));
-        ecaLoginLog.setIpAddress(CommonFunction.getIpAddress(request));
+        ecaLoginLog.setIpAddress(ipAddress);
         ecaLoginLog.setAddTime(System.currentTimeMillis());
         form.set("ecaLoginLogJson",CommonFunction.getGson().toJson(ecaLoginLog));
         String ecaLoginLogInsertStatusObj = restTemplate.postForObject(serverURL + "/admin/eca_login_log/insert",form,String.class);

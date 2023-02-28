@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302271537">
-      <change afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/common/SendCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/EcableBackstageMain9001.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/EcableBackstageMain9001.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/config/ApplicationContextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/config/ApplicationContextConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/login/EcAdminLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/login/EcAdminLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcaLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/controller/EcaLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcaLoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-ecable-provider8001/src/main/java/com/lanhangbao/mysql/ecable/service/EcaLoginService.java" afterDir="false" />
-    </list>
+    <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302271537" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +172,7 @@
       <workItem from="1677318533138" duration="5811000" />
       <workItem from="1677473923811" duration="27000" />
       <workItem from="1677473957350" duration="11142000" />
-      <workItem from="1677489023908" duration="4522000" />
+      <workItem from="1677489023908" duration="4542000" />
     </task>
     <task id="LOCAL-00001" summary="janson202302251253">
       <created>1677300848024</created>
@@ -219,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677483450665</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="janson202302271537">
+      <created>1677497362308</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677497362308</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

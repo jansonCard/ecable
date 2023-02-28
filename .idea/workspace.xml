@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302271537" />
+    <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302271537">
+      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/login/EcAdminLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/login/EcAdminLoginController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,7 +182,7 @@
       <workItem from="1677473923811" duration="27000" />
       <workItem from="1677473957350" duration="11142000" />
       <workItem from="1677489023908" duration="4542000" />
-      <workItem from="1677546333225" duration="446000" />
+      <workItem from="1677546333225" duration="641000" />
     </task>
     <task id="LOCAL-00001" summary="janson202302251253">
       <created>1677300848024</created>
@@ -231,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677546386603</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="janson202302271537">
+      <created>1677546887178</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677546887178</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

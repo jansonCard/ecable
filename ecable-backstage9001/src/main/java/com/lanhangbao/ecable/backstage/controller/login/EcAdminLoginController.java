@@ -244,7 +244,7 @@ public class EcAdminLoginController {
     public int insertEcaLogin(Ec_admin ecAdmin, int loginType, String tokenName, String tokenString)
     {
         int status = 0;
-        System.out.println("ecAdmin + " + CommonFunction.getGson().toJson(ecAdmin));
+        //System.out.println("ecAdmin + " + CommonFunction.getGson().toJson(ecAdmin));
         ecaLogin = new Eca_login();
         ecaLogin.setEcaId(ecAdmin.getEcaId());
         ecaLogin.setClientType(1);//PC端网页

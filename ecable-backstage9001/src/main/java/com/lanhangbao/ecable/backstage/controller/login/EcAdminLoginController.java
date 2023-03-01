@@ -1,6 +1,5 @@
 package com.lanhangbao.ecable.backstage.controller.login;
 
-import com.lanhangbao.ecable.backstage.controller.common.IpController;
 import com.lanhangbao.ecable.entities.CommonFunction;
 import com.lanhangbao.ecable.entities.bean.Ec_admin;
 import com.lanhangbao.ecable.entities.bean.Eca_login;

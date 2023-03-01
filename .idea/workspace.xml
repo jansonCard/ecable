@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b6b9d31a-9bb5-4fc4-88b3-3d970253fe9a" name="Changes" comment="janson202302271537">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/login/EcAdminLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecable-backstage9001/src/main/java/com/lanhangbao/ecable/backstage/controller/login/EcAdminLoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +224,7 @@
       <workItem from="1677546333225" duration="867000" />
       <workItem from="1677550709135" duration="5755000" />
       <workItem from="1677571114497" duration="6597000" />
-      <workItem from="1677632271699" duration="3112000" />
+      <workItem from="1677632271699" duration="4200000" />
     </task>
     <task id="LOCAL-00001" summary="janson202302251253">
       <created>1677300848024</created>
@@ -290,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677546997616</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="janson202302271537">
+      <created>1677641392331</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677641392331</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +338,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="janson" />
+                        <option value="origin/janson" />
                       </list>
                     </value>
                   </entry>
